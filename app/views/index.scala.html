@@ -1,0 +1,44 @@
+@(message: String)
+
+@main("Welcome to Play") {
+
+  <div class="container" ng-app="app" ng-controller="MainCtrl" ng-init="init()">
+    <div class="page-header">
+      <h1 class="h2">Play WebSocket Study</h1>
+    </div>
+    <form class="form">
+      <div class="form-group">
+        <input type="text" class="form-control input-block" ng-model="input"/>
+      </div>
+      <div class="clearfix">
+        <div class="form-group pull-right">
+          <button type="button" class="btn btn-primary" ng-click="send()" ng-disabled="input == ''">Send</button>
+          <button type="button" class="btn btn-danger" ng-click="clear()">Clear</button>
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">WebSocket with actors results</h3>
+          </div>
+          <div class="panel-body">
+            <p ng-repeat="content in actorResults track by $index" ng-bind="content"></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">WebSocket with iteratee results</h3>
+          </div>
+          <div class="panel-body">
+            <p ng-repeat="content in iterateeResults track by $index" ng-bind="content"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+}
